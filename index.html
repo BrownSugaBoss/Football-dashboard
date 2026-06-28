@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Football Dashboard</title>
+</head>
+<body>
+    <h1>League Standings</h1>
+    <div id="data">Loading...</div>
+
+    <script>
+        // This fetches data from YOUR proxy, not the football-data API
+        fetch('/api/proxy')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById('data').innerText = JSON.stringify(data, null, 2);
+            })
+            .catch(error => console.error('Error:', error));
+    </script>
+</body>
+</html>
